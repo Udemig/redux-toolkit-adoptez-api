@@ -11,7 +11,9 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const btnLoginOnClick = () => {
+  const formOnSubmit = (event) => {
+    event.preventDefault()
+
     const postData = {email, password}
     console.log('>> POST DATA', postData)
 
@@ -35,7 +37,7 @@ function Login() {
         <br />
         <br />
 
-        <form noValidate>
+        <form noValidate onSubmit={formOnSubmit}>
           <div className="row g-3">
             <div className="col-sm-12">
               <label className="form-label">E-posta</label>
@@ -55,7 +57,7 @@ function Login() {
             <div className="col-sm-12">
 
               <div className="d-grid gap-2">
-                <button className="btn btn-primary" type="button" onClick={btnLoginOnClick}>
+                <button className="btn btn-primary" type="submit">
                   Giriş Yap
                 </button>
               </div>
